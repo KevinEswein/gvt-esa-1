@@ -27,6 +27,22 @@ function toggleAnimation() {
   isAnimating = !isAnimating;
 }
 
+// Mario Animation
+const mario = document.getElementById('mario');
+const marioFrames = 8;
+let marioRun = true;
+let currentMarioFrame = 0;
+
+function updateMarioFrame() {
+  if (marioRun) {
+    const frameWidth = 37.5;
+    mario.style.backgroundPosition = `-${currentMarioFrame * frameWidth}px 0px`;
+    currentMarioFrame = (currentMarioFrame + 1) % marioFrames;
+  }
+}
+
+setInterval(updateMarioFrame, 100);
+
 document.addEventListener('keydown', (event) => {
   if (event.key === 'L' || event.key === 'l') {
     rotateLeft();
@@ -34,18 +50,7 @@ document.addEventListener('keydown', (event) => {
     rotateRight();
   } else if (event.key === 'A' || event.key === 'a') {
     toggleAnimation();
+  } else if (event.key === 'M' || event.key === 'm') {
+    marioRun = !marioRun;
   }
 });
-
-// Mario Animation
-const mario = document.getElementById('mario');
-const marioFrames = 8;
-let currentMarioFrame = 0;
-
-function updateMarioFrame() {
-  const frameWidth = 37.5;
-  mario.style.backgroundPosition = `-${currentMarioFrame * frameWidth}px 0px`;
-  currentMarioFrame = (currentMarioFrame + 1) % marioFrames;
-}
-
-setInterval(updateMarioFrame, 100);
