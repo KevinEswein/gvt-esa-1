@@ -43,7 +43,7 @@ const marioFrames = 8;
 let currentMarioFrame = 0;
 
 function updateMarioFrame() {
-  const frameWidth = 37; // Breite eines einzelnen Frames
+  const frameWidth = 37.5;
   mario.style.backgroundPosition = `-${currentMarioFrame * frameWidth}px 0px`;
   currentMarioFrame = (currentMarioFrame + 1) % marioFrames;
 }
