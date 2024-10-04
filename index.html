@@ -11,7 +11,12 @@
             font-family: 'Roboto', sans-serif;
             background-color: beige;
         }
-        #animation-container {
+        #animations {
+            margin-left: 30vw;
+            margin-right: 30vw;
+            display: flex;
+        }
+        #animation-container, #mario-container {
             background-color: azure;
             width: 200px;
             height: 200px;
@@ -19,6 +24,26 @@
             text-align: center;
             border-radius: 100%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #mario-container {
+            border-radius: 2rem;
+            overflow: hidden;
+            position: relative;
+            width: 160px;
+            height: 200px;
+            margin-left: 0;
+        }
+
+        #mario {
+            width: 148px;
+            height: 108px;
+            background: url('data/spritesheet_mario2.png') no-repeat;
+            background-size: 296px 27px;
+            transform-origin: top left;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(4);
         }
         #interaction-description {
             background-color: azure;
@@ -36,9 +61,15 @@
 </head>
 
 <body>
-<div id="animation-container">
-    <img id="rotating-disc" src="data/disc_0.png" alt="Rotierende Scheibe">
+<div id="animations">
+    <div id="animation-container">
+        <img id="rotating-disc" src="data/disc_0.png" alt="Rotierende Scheibe">
+    </div>
+    <div id="mario-container">
+        <div id="mario"></div>
+    </div>
 </div>
+
 <div id="interaction-description">
     <h2>Interaktive animierte Scheibe</h2>
     <p>Sie können die Scheibe durch Drücken der folgenden Tasten steuern:</p>
@@ -47,6 +78,8 @@
         <li><strong>R</strong> = Eine Drehung nach rechts (+15°)</li>
         <li><strong>A</strong> = Kontinuierliches Drehen (Start / Stop)</li>
     </ul>
+    <h2>Mario Animation</h2>
+    <p>Quelle: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">https://spritedatabase.net/file/8608</a><a href="https://spritedatabase.net/file/8608">.</a></p>
 </div>
 <script src="script.js"></script>
 </body>

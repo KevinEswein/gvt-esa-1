@@ -36,3 +36,16 @@ document.addEventListener('keydown', (event) => {
     toggleAnimation();
   }
 });
+
+// Mario Animation
+const mario = document.getElementById('mario');
+const marioFrames = 8;
+let currentMarioFrame = 0;
+
+function updateMarioFrame() {
+  const frameWidth = 37; // Breite eines einzelnen Frames
+  mario.style.backgroundPosition = `-${currentMarioFrame * frameWidth}px 0px`;
+  currentMarioFrame = (currentMarioFrame + 1) % marioFrames;
+}
+
+setInterval(updateMarioFrame, 100);
